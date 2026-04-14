@@ -1,0 +1,50 @@
+# =========================
+# NORMAL ACTIVITY (LOW RISK)
+# =========================
+2026-04-13 09:55:01 LOGIN_SUCCESS user=alice ip=10.0.0.1
+2026-04-13 10:00:01 LOGIN_SUCCESS user=admin ip=192.168.0.10
+2026-04-13 10:04:01 LOGIN_SUCCESS user=alice ip=10.0.0.1
+
+# =========================
+# SUSPICIOUS LOGIN (MEDIUM)
+# Same user, multiple failed attempts
+# =========================
+2026-04-13 10:01:15 LOGIN_FAILED user=bob ip=10.0.0.5
+2026-04-13 10:01:20 LOGIN_FAILED user=bob ip=10.0.0.5
+2026-04-13 10:01:25 LOGIN_FAILED user=bob ip=10.0.0.5
+
+# =========================
+# BRUTE FORCE ATTACK (HIGH)
+# =========================
+2026-04-13 10:02:01 LOGIN_FAILED user=admin ip=192.168.0.10
+2026-04-13 10:02:05 LOGIN_FAILED user=admin ip=192.168.0.10
+2026-04-13 10:02:10 LOGIN_FAILED user=admin ip=192.168.0.10
+2026-04-13 10:02:15 LOGIN_FAILED user=admin ip=192.168.0.10
+2026-04-13 10:02:20 LOGIN_FAILED user=admin ip=192.168.0.10
+2026-04-13 10:02:25 LOGIN_FAILED user=admin ip=192.168.0.10
+
+# =========================
+# COMPROMISED ACCOUNT (CRITICAL)
+# failed -> success pattern
+# =========================
+2026-04-13 10:02:30 LOGIN_SUCCESS user=admin ip=192.168.0.10
+
+# =========================
+# ANOTHER BRUTE FORCE (MEDIUM → HIGH border)
+# =========================
+2026-04-13 10:03:01 LOGIN_FAILED user=root ip=172.16.0.9
+2026-04-13 10:03:05 LOGIN_FAILED user=root ip=172.16.0.9
+2026-04-13 10:03:10 LOGIN_FAILED user=root ip=172.16.0.9
+2026-04-13 10:03:15 LOGIN_FAILED user=root ip=172.16.0.9
+
+# =========================
+# SUSPICIOUS BEHAVIOR (IP CHANGE)
+# =========================
+2026-04-13 10:05:00 LOGIN_SUCCESS user=alice ip=10.0.0.1
+2026-04-13 10:05:30 LOGIN_SUCCESS user=alice ip=200.200.200.200
+
+# =========================
+# OFF-HOURS ACTIVITY (MEDIUM)
+# =========================
+2026-04-13 03:15:00 LOGIN_SUCCESS user=admin ip=192.168.0.10
+2026-04-13 22:45:00 LOGIN_SUCCESS user=alice ip=10.0.0.1

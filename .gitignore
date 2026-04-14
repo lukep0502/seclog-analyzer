@@ -1,0 +1,46 @@
+# 🔐 Environment variables
+.env
+.env.*
+
+# 🐍 Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📦 Virtual environment
+venv/
+env/
+.venv/
+
+# 📊 Output files (SIEM-like data)
+output/*
+!output/.gitkeep
+
+# Logs (ignore all except example)
+logs/*
+!logs/example_auth.log
+
+# 🧪 Temporary files
+*.tmp
+*.temp
+
+# 🖥️ OS files
+.DS_Store
+Thumbs.db
+
+# 🧰 IDE / Editor
+.vscode/
+.idea/
+
+# 🧱 Build / dist
+build/
+dist/
+
+# 🧾 Coverage / test
+.coverage
+htmlcov/
+
+# 🔒 Secrets
+secrets.json
+config.json
