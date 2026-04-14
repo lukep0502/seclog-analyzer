@@ -187,12 +187,12 @@ To enhance the visual quality and credibility of this project, Below are example
 
 ### 📷 SOC Dashboard Overview
 <p align="center">
-  <img src="images/dashboard-overview.png" width="800"/>
+  <img src="images/dashboard-overview.jpeg" width="800"/>
 </p>
 
 ### 🚨 Incident Analysis View
 <p align="center">
-  <img src="images/incident-analysis.png" width="800"/>
+  <img src="images/incident-analysis.jpeg" width="800"/>
 </p>
 
 ## 🚀 **Future Improvements**
