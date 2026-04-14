@@ -6,38 +6,15 @@ This project replicates core **SIEM-like capabilities**, including **log parsing
 
 ---
 
-## 🧠 Why This Project Matters
-
-This project was developed to simulate real-world tasks performed in entry-level SOC environments, such as:
-
-- Log monitoring and analysis  
-- Incident triage and prioritization  
-- Detection of suspicious authentication activity  
-- Event correlation across logs  
-
-It demonstrates how raw log data can be transformed into **actionable security insights**, reflecting common workflows used by SOC analysts.
-
----
-
-## 🛠️ Tech Stack
-
-- Python  
-- Flask  
-- JSON  
-- Chart.js  
-- Log Analysis (auth.log)  
-
----
-
 ## 📌 Overview
 
-**SecLog Analyzer** simulates real-world SOC workflows by ingesting authentication logs (`auth.log`) and transforming raw data into structured and actionable security events.
+**SecLog Analyzer** simulates real-world SOC workflows by ingesting authentication logs (`auth.log`) and transforming raw data into **actionable security insights**.
 
-The system identifies suspicious behaviors, correlates events, and generates **prioritized alerts**, mimicking how analysts operate in a SOC environment.
+The system identifies suspicious behaviors, correlates events, and generates **prioritized alerts**, mimicking how analysts operate in a real SOC environment.
 
 ---
 
-## 🚨 **Project Highlights**
+## 🚨 Project Highlights
 
 - 🔍 **Log Parsing Pipeline**  
   Converts raw authentication logs into structured security events  
@@ -59,43 +36,23 @@ The system identifies suspicious behaviors, correlates events, and generates **p
 
 ---
 
-## 🧪 Sample Data
+## 🔍 Detection Capabilities
 
-This repository includes a sample authentication log for testing purposes:
-
-- `logs/example_auth.log`
-
-All data in this file is synthetic and generated for simulation.
-
-Real-world logs are intentionally excluded to follow security and privacy best practices.
-
-## 📦 Output Data
-
-Generated alerts are stored in:
-
-- `output/alerts.json`
-
-This file is dynamically created during execution and is not included in the repository.
-
-The `output/` directory is preserved using a placeholder file.
-
-## 🔍 **Detection Capabilities**
-
-### 🔴 **Brute Force Attack Detection**
+### 🔴 Brute Force Attack Detection
 Identifies repeated failed login attempts from the same IP address.
 
-### 🔥 **Account Compromise Detection**
+### 🔥 Account Compromise Detection
 Correlates failed login attempts followed by a successful authentication.
 
-### ⚠️ **Suspicious Login Detection**
+### ⚠️ Suspicious Login Detection
 Detects login attempts from different IP addresses within a short time window.
 
-### 🕒 **Off-Hours Activity Detection**
+### 🕒 Off-Hours Activity Detection
 Flags logins occurring outside standard business hours (**08:00–18:00**).
 
 ---
 
-## 🧠 **Architecture Overview**
+## 🧠 Architecture Overview
 
 The project follows a simplified SOC pipeline:
 
@@ -103,23 +60,23 @@ The project follows a simplified SOC pipeline:
 2. **Parsing Layer** → Extracts structured fields (timestamp, user, IP, event)  
 3. **Detection Engine** → Applies security rules and correlations  
 4. **Alert Generation** → Assigns severity levels  
-5. **Data Output** → Exports alerts (JSON)  
+5. **Data Output** → Exports alerts (`output/alerts.json`)  
 6. **Visualization Layer** → Displays alerts via Flask dashboard  
 
 ---
 
-## 📊 **Dashboard Features**
+## 📊 Dashboard Features
 
 The web dashboard provides a centralized view of security events:
 
 - 📌 **Severity summary cards** (LOW → CRITICAL)  
 - 📂 **Alerts grouped by detection type**  
-- 📈 **Chart.js visualization of alert distribution**  
+- 📈 **Chart visualization of alert distribution**  
 - 🕵️ **Incident timeline** (chronological event tracking)  
 
 ---
 
-## 🧠 **Skills Demonstrated**
+## 🧠 Skills Demonstrated
 
 - Security log analysis  
 - Threat detection engineering  
@@ -132,7 +89,7 @@ The web dashboard provides a centralized view of security events:
 
 ---
 
-## 🌐 **SOC / SIEM Relevance**
+## 🌐 SOC / SIEM Relevance
 
 This project is conceptually aligned with real-world tools such as:
 
@@ -149,7 +106,73 @@ It demonstrates how security teams:
 
 ---
 
-## 🔐 **Security Considerations**
+## ⚙️ How to Run
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/seclog-analyzer.git
+cd seclog-analyzer
+```
+
+### **3. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+### **4. Run the analyzer**
+```bash
+python src/analyzer.py
+```
+
+### **5. Start the dashboard**
+```bash
+python dashboard/app.py
+```
+
+### **6. Access the application**
+```bash
+http://127.0.0.1:5000
+```
+
+## 📸 Screenshots
+
+### SOC Dashboard Overview
+Displays overall alert distribution and severity levels.
+<p align="center">
+  <img src="images/dashboard-overview.jpeg" width="800"/>
+</p>
+
+### Incident Analysis View
+Shows detailed alerts and chronological event timeline.
+<p align="center">
+  <img src="images/incident-analysis.jpeg" width="800"/>
+</p>
+
+## 🧪 Sample Data
+
+This repository includes a sample authentication log for testing purposes:
+
+- `logs/example_auth.log`
+
+All data in this file is **synthetic** and generated for simulation.
+
+Real-world logs are intentionally excluded to follow **security and privacy best practices**.
+
+---
+
+## 📦 Output Data
+
+Generated alerts are stored in:
+
+- `output/alerts.json`
+
+This file is dynamically created during execution and is **not included in the repository**.
+
+The `output/` directory is preserved using a placeholder file.
+
+---
+
+## 🔐 Security Considerations
 
 - Runs locally (**127.0.0.1**)  
 - No external input processing  
@@ -159,43 +182,7 @@ It demonstrates how security teams:
 
 ---
 
-## ⚙️ **How to Run**
-
-### **1. Install dependencies**
-```bash
-pip install flask
-```
-
-### **2. Run the analyzer**
-```bash
-  python src/analyzer.py
-```
-
-### **3. Start the dashboard**
-```bash
-  python dashboard/app.py
-```
-
-### **4. Access the dashboard**
-```bash
-  http://127.0.0.1:5000
-```
-
-## 📸 **Screenshots**
-
-To enhance the visual quality and credibility of this project, Below are examples of the SOC dashboard and detected incidents::
-
-### 📷 SOC Dashboard Overview
-<p align="center">
-  <img src="images/dashboard-overview.jpeg" width="800"/>
-</p>
-
-### 🚨 Incident Analysis View
-<p align="center">
-  <img src="images/incident-analysis.jpeg" width="800"/>
-</p>
-
-## 🚀 **Future Improvements**
+## 🚀 Future Improvements
 
 - Real-time log ingestion  
 - Advanced filtering (**user / IP / time range**)  
@@ -205,14 +192,8 @@ To enhance the visual quality and credibility of this project, Below are example
 
 ---
 
-## 👨‍💻 **Author**
+## 👨‍💻 Author
 
 **Lucas Pichilingue Rohr**  
 
 Cybersecurity-focused Computer Science student with emphasis on **SOC operations**, **threat detection**, and **log analysis**.
-
----
-
-## 📜 **License**
-
-This project is intended for **educational and portfolio purposes**.
